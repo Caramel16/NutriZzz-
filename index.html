@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriZzz</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <!-- <a href="#"> -->
+          <img src="Images/Logo.svg" alt="NutriZzz Logo" />
+          <!-- </a> -->
+        </div>
+
+        <nav class="desktop-links">
+          <ul>
+            <li><a class="active" href="#hero-section">Home</a></li>
+            <li><a href="#about-section">About</a></li>
+            <li><a href="#features-section">Features</a></li>
+            <li><a href="#resources-section">Resources</a></li>
+          </ul>
+        </nav>
+        <div class="log-buttons">
+          <a href="#" class="login">Log in</a>
+          <a href="#" class="get-started">Get Started</a>
+        </div>
+        <div class="hamburger-menu">
+          <i class="fa-solid fa-bars"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <!-- mobile navbar -->
+      <div class="mobile-overlay">
+        <div class="navbar mobile-menu">
+          <nav class="mobile-links">
+            <ul>
+              <li><a class="active" href="#hero-section">Home</a></li>
+              <li><a href="#about-section">About</a></li>
+              <li><a href="#features-section">Features</a></li>
+              <li><a href="#resources-section">Resources</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-buttons">
+            <a href="#" class="login">Log in</a>
+            <a href="#" class="get-started">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="content-wrapper hero" id="hero-section">
+        <p class="tagline">🌙 Journey to better health</p>
+        <h1>
+          Transform Your Health with Personalized Nutrition and Sleep Guidance.
+        </h1>
+        <p class="subtext">
+          Achieve Your Health Goals with Tailored Nutrition Plans and Sleep
+          Insights
+        </p>
+        <a href="#" class="cta-button">Get Started</a>
+
+        <div class="features-tags">
+          <span class="features-tag active-tag meal" onclick="renderMealChart()"
+            >Personalized Nutrition
+          </span>
+          <span class="features-tag sleep" onclick="renderSleepChart()"
+            >Sleep Tracking</span
+          >
+          <span
+            class="features-tag combination"
+            onclick="renderCombinationChart()"
+            >Nutrition/Sleep</span
+          >
+        </div>
+        <div style="width: 80%; height: 500px; margin: auto">
+          <canvas id="myChart"></canvas>
+        </div>
+      </section>
+
+      <section class="content-wrapper about" id="about-section">
+        <img src="Images/Logo.svg" alt="NutriZzz Logo" />
+        <p class="content">
+          Our app empowers you to achieve your health goals. From curated meal
+          plans that cater to your preferences and dietary needs to advanced
+          sleep tracking and scheduling features.
+        </p>
+
+        <img src="Images/Frame 37525.svg" alt="Group A3" />
+        <div>
+          <p class="group">Group A3</p>
+          <p class="text">
+            Hear from our amazing designers who are solving the user
+            frustration.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-wrapper features" id="features-section">
+        <div class="features-content">
+          <p class="f-tagline">Features</p>
+          <h3>Your Partner in Health and Rest</h3>
+          <h6>This is what makes us stand out.</h6>
+        </div>
+
+        <div class="features-container">
+          <div class="f-wrapper">
+            <div class="gray-box">
+              <div class="indicator"></div>
+            </div>
+            <div class="f-content-wrapper">
+              <div class="f-content active">
+                <h5>Personalized Nutrition</h5>
+                <h6>
+                  Tailor-made meal plans based on your preferences and goals.
+                </h6>
+                <h6>
+                  Smart eat-out suggestions to keep your diet balanced even on
+                  the go.
+                </h6>
+
+                <a class="f-link" href="">Learn more &#8594;</a>
+              </div>
+
+              <div class="f-content">
+                <h5>Sleep Tracking and Analysis</h5>
+                <h6>Track your sleep patterns and get in-depth analysis.</h6>
+                <h6>
+                  Receive actionable insights to improve your sleep quality.
+                </h6>
+                <a class="f-link" href="">Learn more &#8594;</a>
+              </div>
+
+              <div class="f-content">
+                <h5>Calendar Sync</h5>
+                <h6>
+                  Sync your schedule and plan your meals and bedtime seamlessly.
+                </h6>
+                <h6>
+                  Set reminders to stay on track with your wellness goals.
+                </h6>
+                <a class="f-link" href="">Learn more &#8594;</a>
+              </div>
+            </div>
+          </div>
+          <div class="f-image">
+            <img src="Images/Mockup wrap.svg" alt="Features image" />
+          </div>
+        </div>
+      </section>
+
+      <section class="content-wrapper blog-section" id="resources-section">
+        <div class="blog">
+          <div>
+            <p class="R-tagline">Recources</p>
+            <h1>NutriZzz blog posts</h1>
+            <p>Stay informed and inspired</p>
+          </div>
+
+          <div>
+            <button class="view-all">View all posts</button>
+          </div>
+        </div>
+
+        <!-- Blog Card 1 -->
+
+        <div class="blog-container">
+          <div class="blog-card">
+            <div class="card-container">
+              <img
+                class="blog-img"
+                src="Images/breakfast.svg"
+                alt="Breakfast ideas"
+              />
+              <div class="middle">
+                <button class="view-more-btn view-all">View More</button>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-category">Nutrition</div>
+              <div class="blog-title">10 Quick Breakfast Ideas</div>
+              <div class="blog-description">
+                Quick tips and actionable ideas for nutrition
+              </div>
+              <div class="blog-author">
+                <img src="Images/author1.svg" alt="DanDan Dan" />
+                <div class="author-details">
+                  <p class="author-name">DanDan Dan</p>
+                  <p class="date">20 Sept 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 2 -->
+          <div class="blog-card">
+            <div class="card-container">
+              <img
+                class="blog-img"
+                src="Images/sleep.svg"
+                alt="Sleep Routine"
+              />
+              <div class="middle">
+                <button class="view-more-btn view-all">View More</button>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-category">Sleep</div>
+              <div class="blog-title">Build a Sleep Routine</div>
+              <div class="blog-description">
+                Step-by-step simplified routine to optimize rest
+              </div>
+              <div class="blog-author">
+                <img src="Images/author2.svg" alt="James Baker" />
+                <div class="author-details">
+                  <p class="author-name">James Baker</p>
+                  <p class="date">19 Oct 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 3 -->
+          <div class="blog-card">
+            <div class="card-container">
+              <img
+                class="blog-img"
+                src="Images/testimonials.svg"
+                alt="User Testimonials"
+              />
+              <div class="middle">
+                <button class="view-more-btn view-all">View More</button>
+              </div>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-category">Features</div>
+              <div class="blog-title">Testimonials from Users</div>
+              <div class="blog-description">
+                Be inspired by real journey of transformation
+              </div>
+              <div class="blog-author">
+                <img src="Images/author3.svg" alt="Layla Stone" />
+                <div class="author-details">
+                  <p class="author-name">Layla Stone</p>
+                  <p class="date">18 Nov 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-wrapper cta">
+        <div class="cta-container">
+          <div class="cta-text">
+            <h1>Your Wellness, Simplified</h1>
+            <p>Start your wellness journey with us.</p>
+          </div>
+          <div class="cta-buttons">
+            <button class="btn-secondary btn">Log in</button>
+            <button class="btn-primary btn">Get started</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="black"></div>
+
+      <section class="content-wrapper footer">
+        <div class="footer-container">
+          <!-- Logo -->
+          <div class="logo">
+            <img src="Images/Logo.svg" alt="NutriZzz Logo" />
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="footer-nav">
+            <a href="#hero-section">Home</a>
+            <a href="#about-section">About</a>
+            <a href="#features-section">Features</a>
+            <a href="#resources-section">Resources</a>
+          </div>
+
+          <!-- Copyright -->
+          <div class="footer-copyright">&copy; UX Development 2024</div>
+        </div>
+      </section>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>

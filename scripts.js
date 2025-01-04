@@ -268,22 +268,114 @@ function setActiveButton(element) {
 
 renderMealChart(); //this is for the first chart to show - the function was called so it can run.
 
+// changes
+// document.addEventListener("DOMContentLoaded", () => {
+//   const heroElements = document.querySelectorAll(".features-container img");
 
+//   const isInViewport = (element) => {
+//     const rect = element.getBoundingClientRect();
+//     return rect.top <= window.innerHeight && rect.bottom >= 0;
+//   };
+
+//   const handleScroll = () => {
+//     heroElements.forEach((el) => {
+//       if (isInViewport(el)) {
+//         el.classList.add("active");
+//       }
+//     });
+//   };
+
+//   window.addEventListener("scroll", handleScroll);
+// });
+
+// Replace your existing scroll animation code with this
 document.addEventListener("DOMContentLoaded", () => {
-  const heroElements = document.querySelectorAll(".features-container img");
-
-  const isInViewport = (element) => {
-    const rect = element.getBoundingClientRect();
-    return rect.top <= window.innerHeight && rect.bottom >= 0;
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: "50px",
   };
 
-  const handleScroll = () => {
-    heroElements.forEach((el) => {
-      if (isInViewport(el)) {
-        el.classList.add("active");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const img = entry.target.querySelector("img");
+        if (img) {
+          img.classList.add("active");
+        }
+        entry.target.classList.add("active");
+      } else {
+        // Remove active class when element leaves viewport
+        const img = entry.target.querySelector("img");
+        if (img) {
+          img.classList.remove("active");
+        }
+        entry.target.classList.remove("active");
       }
     });
-  };
+  }, observerOptions);
 
-  window.addEventListener("scroll", handleScroll);
+  const featureImages = document.querySelectorAll(
+    ".features-container .f-image"
+  );
+  featureImages.forEach((image) => {
+    observer.observe(image);
+  });
 });
+// new update
+// Add this new function for smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+      });
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Blog View More Button Interaction
+  const viewMoreButtons = document.querySelectorAll(".view-more-btn");
+  viewMoreButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      alert("More details will be added soon!");
+    });
+  });
+
+  // CTA Button Interaction
+  const ctaButtons = document.querySelectorAll(".cta-button, .btn-primary, .btn-secondary");
+  ctaButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      alert("Button clicked! Navigating...");
+      // Add navigation or modal logic here
+    });
+  });
+
+  // Blog Card Hover Animation (optional)
+  const blogCards = document.querySelectorAll(".blog-card");
+  blogCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.1)";
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.boxShadow = "none";
+    });
+  });
+});
+
+document.querySelectorAll(".blog-category").forEach((category) => {
+  category.addEventListener("click", (event) => {
+    const selectedCategory = event.target.textContent.trim();
+    const blogCards = document.querySelectorAll(".blog-card");
+
+    blogCards.forEach((card) => {
+      const cardCategory = card.querySelector(".blog-category").textContent.trim();
+      card.style.display = cardCategory === selectedCategory || selectedCategory === "All" ? "block" : "none";
+    });
+  });
+});
+
+
+
